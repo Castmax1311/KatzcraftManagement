@@ -1,0 +1,7 @@
+# Write null if you don't want a custom join message
+# Works with placeholders (PlaceholderAPI needs to be installed & the placeholder hook needs to be installed as well)
+# For example: %player_name% needs you to run "/papi ecloud download Player"
+customJoinMessage: "§6§l%player_name% §ejust appeared on the server! Say hello!"
+
+# Same as above goes for the leave message
+customLeaveMessage: "§6§l%player_name% §ejust left the server... We hope to seem them again soon!"
