@@ -1,9 +1,13 @@
 name: KatzcraftManagement
-version: '0.2'
+version: '0.3'
 main: de.castmax1311.katzcraftmanagement.Main
 api-version: '1.16'
-description: A plugin to help admins manage your server
+description: A plugin to help admins manage their server
 softdepend: [PlaceholderAPI] # This is used, if your plugin works without PlaceholderAPI.
 commands:
     maintenance:
-      usage:
+      description: Put your server in maintenance
+      usage: /maintenance
+    fly:
+      description: Flight mode
+      usage: /fly
