@@ -4,6 +4,7 @@ import de.castmax1311.katzcraftmanagement.Listeners.PlayerJoinListener;
 import de.castmax1311.katzcraftmanagement.Listeners.PlayerLeaveListener;
 import de.castmax1311.katzcraftmanagement.Listeners.ServerListPingListener;
 import de.castmax1311.katzcraftmanagement.commands.MaintenanceCommand;
+import de.castmax1311.katzcraftmanagement.commands.FlyCommand;
 import de.castmax1311.katzcraftmanagement.commands.UpdateChecker;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -18,7 +19,6 @@ public final class Main extends JavaPlugin implements Listener {
     private boolean maintenanceMode = false;
     private String originalMotd;
     public static Main instance;
-
     @Override
     public void onLoad() {
         instance = this;
@@ -27,8 +27,9 @@ public final class Main extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         getCommand("maintenance").setExecutor(new MaintenanceCommand());
+        getCommand("fly").setExecutor(new FlyCommand());
         getServer().getPluginManager().registerEvents(this, this);
-        getLogger().info("MaintenanceMode plugin has been enabled.");
+        getLogger().info("KatzcraftManagement plugin has been enabled.");
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
         Bukkit.getPluginManager().registerEvents(new ServerListPingListener(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
@@ -49,7 +50,7 @@ public final class Main extends JavaPlugin implements Listener {
 
     @Override
     public void onDisable() {
-        getLogger().info("MaintenanceMode plugin has been disabled.");
+        getLogger().info("KatzcraftManagement plugin has been disabled.");
     }
 
     public boolean isMaintenanceMode() {
