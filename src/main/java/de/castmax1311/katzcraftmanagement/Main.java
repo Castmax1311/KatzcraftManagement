@@ -1,11 +1,7 @@
 package de.castmax1311.katzcraftmanagement;
 
-import de.castmax1311.katzcraftmanagement.Listeners.PlayerJoinListener;
-import de.castmax1311.katzcraftmanagement.Listeners.PlayerLeaveListener;
-import de.castmax1311.katzcraftmanagement.Listeners.ServerListPingListener;
-import de.castmax1311.katzcraftmanagement.commands.MaintenanceCommand;
-import de.castmax1311.katzcraftmanagement.commands.FlyCommand;
-import de.castmax1311.katzcraftmanagement.commands.UpdateChecker;
+import de.castmax1311.katzcraftmanagement.Listeners.*;
+import de.castmax1311.katzcraftmanagement.commands.*;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -14,6 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+
 
 public final class Main extends JavaPlugin implements Listener {
     private boolean maintenanceMode = false;
@@ -28,7 +25,10 @@ public final class Main extends JavaPlugin implements Listener {
     public void onEnable() {
         getCommand("maintenance").setExecutor(new MaintenanceCommand());
         getCommand("fly").setExecutor(new FlyCommand());
-        getServer().getPluginManager().registerEvents(this, this);
+        getCommand("mute").setExecutor(new MuteCommand());
+        getServer().getPluginManager().registerEvents(new MuteListener(), this);
+        getCommand("vanish").setExecutor(new VanishCommand());
+        getServer().getPluginManager().registerEvents(new VanishListener(), this);
         getLogger().info("KatzcraftManagement plugin has been enabled.");
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
         Bukkit.getPluginManager().registerEvents(new ServerListPingListener(), this);
@@ -75,7 +75,7 @@ public final class Main extends JavaPlugin implements Listener {
         if (maintenanceMode && !player.isOp()) {
             player.kickPlayer(ChatColor.RED + "This server is under maintenance");
         } else {
-            player.setGameMode(GameMode.CREATIVE); // Ändern Sie dies nach Bedarf
+            player.setGameMode(GameMode.CREATIVE);
         }
     }
 }
