@@ -29,6 +29,7 @@ public final class Main extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new MuteListener(), this);
         getCommand("vanish").setExecutor(new VanishCommand());
         getServer().getPluginManager().registerEvents(new VanishListener(), this);
+        getCommand("inventory").setExecutor(new InventoryCommand());
         getLogger().info("KatzcraftManagement plugin has been enabled.");
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
         Bukkit.getPluginManager().registerEvents(new ServerListPingListener(), this);
@@ -38,7 +39,6 @@ public final class Main extends JavaPlugin implements Listener {
         saveDefaultConfig();
         reloadConfig();
 
-        // Won't work before publishing
         new UpdateChecker(this, 111324).getVersion(version -> {
             if (this.getDescription().getVersion().equals(version)) {
                 getLogger().info("No updates available");
@@ -71,11 +71,5 @@ public final class Main extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        Player player = event.getPlayer();
-        if (maintenanceMode && !player.isOp()) {
-            player.kickPlayer(ChatColor.RED + "This server is under maintenance");
-        } else {
-            player.setGameMode(GameMode.CREATIVE);
-        }
     }
 }
