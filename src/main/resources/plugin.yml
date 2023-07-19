@@ -1,5 +1,5 @@
 name: KatzcraftManagement
-version: '0.3'
+version: '0.5'
 main: de.castmax1311.katzcraftmanagement.Main
 api-version: '1.16'
 description: A plugin to help admins manage their server
@@ -11,3 +11,9 @@ commands:
     fly:
       description: Flight mode
       usage: /fly
+    mute:
+      description: Mute a player for a user-defined period of time
+      usage: /mute <player> <time in seconds>
+    vanish:
+      description: Be invisible for all players
+      usage: /vanish
