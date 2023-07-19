@@ -21,13 +21,10 @@ public class MaintenanceCommand implements CommandExecutor {
             player.sendMessage("You don't have permission to execute this command!");
             return true;
         }
-        //kommentar
         if (Main.instance.isMaintenanceMode()) {
-            // Wartungsmodus deaktivieren
             Main.instance.setMaintenanceMode(false);
             player.sendMessage("The server is no longer under maintenance");
         } else {
-            // Wartungsmodus aktivieren
             Main.instance.setMaintenanceMode(true);
             player.sendMessage("The server is now under maintenance");
         }
