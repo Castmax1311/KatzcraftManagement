@@ -1,5 +1,5 @@
 name: KatzcraftManagement
-version: '0.6'
+version: '0.7'
 main: de.castmax1311.katzcraftmanagement.Main
 api-version: '1.16'
 description: A plugin to help admins manage their server
