@@ -6,12 +6,12 @@
 
     <groupId>de.castmax1311</groupId>
     <artifactId>katzcraftmanagement</artifactId>
-    <version>0.7</version>
+    <version>0.8</version>
     <packaging>jar</packaging>
 
     <name>KatzcraftManagement</name>
 
-    <description>A plugin to help admins manage their server</description>
+    <description>A plugin to help admins manage your server</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
