@@ -1,10 +1,11 @@
 package de.castmax1311.katzcraftmanagement;
 
 import de.castmax1311.katzcraftmanagement.Listeners.*;
+import de.castmax1311.katzcraftmanagement.TabCompleter.MessagecolorTabCompleter;
+import de.castmax1311.katzcraftmanagement.TabCompleter.NamecolorTabCompleter;
 import de.castmax1311.katzcraftmanagement.commands.*;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -15,6 +16,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class Main extends JavaPlugin implements Listener {
     private boolean maintenanceMode = false;
     private String originalMotd;
+
     public static Main instance;
     @Override
     public void onLoad() {
@@ -29,6 +31,12 @@ public final class Main extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new MuteListener(), this);
         getCommand("vanish").setExecutor(new VanishCommand());
         getServer().getPluginManager().registerEvents(new VanishListener(), this);
+        getCommand("namecolor").setExecutor(new NamecolorCommand());
+        getCommand("namecolor").setTabCompleter(new NamecolorTabCompleter());
+        getServer().getPluginManager().registerEvents(new NamecolorListener(), this);
+        getCommand("messagecolor").setExecutor(new MessagecolorCommand());
+        getCommand("messagecolor").setTabCompleter(new MessagecolorTabCompleter());
+        getServer().getPluginManager().registerEvents(new MessagecolorListener(), this);
         getCommand("inventory").setExecutor(new InventoryCommand());
         getLogger().info("KatzcraftManagement plugin has been enabled.");
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
@@ -50,7 +58,9 @@ public final class Main extends JavaPlugin implements Listener {
 
     @Override
     public void onDisable() {
+
         getLogger().info("KatzcraftManagement plugin has been disabled.");
+
     }
 
     public static String formatMessage(String message) {
