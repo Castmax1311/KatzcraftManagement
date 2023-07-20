@@ -1,5 +1,5 @@
 name: KatzcraftManagement
-version: '0.7'
+version: '0.8'
 main: de.castmax1311.katzcraftmanagement.Main
 api-version: '1.16'
 description: A plugin to help admins manage their server
@@ -20,3 +20,9 @@ commands:
     inventory:
       description: Look into the inventory of other players
       usage: /inventory <player>
+    namecolor:
+      description: Change the color of your name
+      usage: /chatcolor <color>
+    messagecolor:
+      description: Change the color of your chat messages
+      usage: /messagecolor <color>
