@@ -1,5 +1,7 @@
 package de.castmax1311.katzcraftmanagement.commands;
 
+import de.castmax1311.katzcraftmanagement.Main;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -10,7 +12,7 @@ public class FlyCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("This command can only be executed by players.");
+            sender.sendMessage(Main.formatMessage(ChatColor.RED + "This command can only be executed by players."));
             return true;
         }
 
@@ -18,7 +20,7 @@ public class FlyCommand implements CommandExecutor {
 
         // Check if the player is an operator (OP)
         if (!player.isOp()) {
-            player.sendMessage("You don't have permission to use this command.");
+            player.sendMessage(Main.formatMessage(ChatColor.RED + "You don't have permission to use this command."));
             return true;
         }
 
@@ -26,10 +28,10 @@ public class FlyCommand implements CommandExecutor {
         if (player.getAllowFlight()) {
             player.setAllowFlight(false);
             player.setFlying(false); // Disable flying mode
-            player.sendMessage("Flying disabled");
+            player.sendMessage(Main.formatMessage(ChatColor.RED + "Flying disabled"));
         } else {
             player.setAllowFlight(true);
-            player.sendMessage("Flying enabled");
+            player.sendMessage(Main.formatMessage(ChatColor.GREEN + "Flying enabled"));
         }
 
         return true;
