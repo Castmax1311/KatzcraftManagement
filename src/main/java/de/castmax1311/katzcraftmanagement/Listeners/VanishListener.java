@@ -22,18 +22,18 @@ public class VanishListener implements Listener {
     public static void setVanished(Player player, boolean vanished) {
         if (vanished && !vanishedPlayers.contains(player)) {
             vanishedPlayers.add(player);
-            player.sendMessage(ChatColor.YELLOW + "Du bist nun im Vanish-Modus!");
+            player.sendMessage(Main.formatMessage(ChatColor.GREEN + "You are now in vanish mode"));
             for (Player onlinePlayer : player.getServer().getOnlinePlayers()) {
                 onlinePlayer.hidePlayer(Main.instance, player);
             }
-            player.getServer().broadcastMessage(ChatColor.YELLOW + player.getName() + " hat den Server verlassen.");
+            player.getServer().broadcastMessage(ChatColor.YELLOW + player.getName() + " left the game");
         } else if (!vanished && vanishedPlayers.contains(player)) {
             vanishedPlayers.remove(player);
-            player.sendMessage(ChatColor.YELLOW + "Du bist nicht mehr im Vanish-Modus!");
+            player.sendMessage(Main.formatMessage(ChatColor.RED + "You are no longer in vanish mode"));
             for (Player onlinePlayer : player.getServer().getOnlinePlayers()) {
                 onlinePlayer.showPlayer(Main.instance, player);
             }
-            player.getServer().broadcastMessage(ChatColor.YELLOW + player.getName() + " hat den Server betreten.");
+            player.getServer().broadcastMessage(ChatColor.YELLOW + player.getName() + " joined the game");
         }
     }
 

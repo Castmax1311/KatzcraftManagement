@@ -21,7 +21,7 @@ public class PlayerJoinListener implements Listener {
             player.kickPlayer(ChatColor.RED + "This server is under maintenance");
             return;
         } else {
-            player.setGameMode(GameMode.CREATIVE);
+            player.setGameMode(GameMode.SURVIVAL);
         }
 
         if(Main.instance.getConfig().getString("customJoinMessage") != null) {

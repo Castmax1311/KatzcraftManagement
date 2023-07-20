@@ -3,6 +3,7 @@ package de.castmax1311.katzcraftmanagement.Listeners;
 import de.castmax1311.katzcraftmanagement.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -22,7 +23,7 @@ public class MuteListener implements Listener {
 
         if (mutedPlayers.containsKey(playerUUID) && System.currentTimeMillis() < mutedPlayers.get(playerUUID)) {
             event.setCancelled(true);
-            player.sendMessage("You are currently muted and cannot send messages in chat");
+            player.sendMessage(Main.formatMessage(ChatColor.RED + "You are currently muted and cannot send messages in chat"));
         }
     }
 
@@ -32,10 +33,10 @@ public class MuteListener implements Listener {
 
         Bukkit.getScheduler().runTaskLater(Main.instance, () -> {
             unmutePlayer(player);
-            player.sendMessage("You are no longer muted");
+            player.sendMessage(Main.formatMessage(ChatColor.GREEN + "You are no longer muted"));
         }, durationInSeconds * 20L);
 
-        player.sendMessage("You have been muted for " + durationInSeconds + " seconds");
+        player.sendMessage(Main.formatMessage(ChatColor.RED + "You have been muted for " + durationInSeconds + " seconds"));
     }
 
     private static void unmutePlayer(Player player) {
