@@ -53,6 +53,10 @@ public final class Main extends JavaPlugin implements Listener {
         getLogger().info("KatzcraftManagement plugin has been disabled.");
     }
 
+    public static String formatMessage(String message) {
+        return "[" + ChatColor.BLUE + "Katzcraft Management" + ChatColor.RESET + "] " + message;
+    }
+
     public boolean isMaintenanceMode() {
         return maintenanceMode;
     }
