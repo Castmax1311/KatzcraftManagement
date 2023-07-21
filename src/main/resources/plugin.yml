@@ -1,5 +1,5 @@
 name: KatzcraftManagement
-version: '0.8'
+version: '0.9'
 main: de.castmax1311.katzcraftmanagement.Main
 api-version: '1.16'
 description: A plugin to help admins manage their server
@@ -26,3 +26,6 @@ commands:
     messagecolor:
       description: Change the color of your chat messages
       usage: /messagecolor <color>
+    nickname:
+      description: "/nickname <name> or for OP's: /nickname <player> <name>"
+      usage: /nickname <player> <name>

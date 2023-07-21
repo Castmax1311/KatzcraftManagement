@@ -1,6 +1,7 @@
 package de.castmax1311.katzcraftmanagement;
 
 import de.castmax1311.katzcraftmanagement.Listeners.*;
+import de.castmax1311.katzcraftmanagement.Manager.NicknameManager;
 import de.castmax1311.katzcraftmanagement.TabCompleter.MessagecolorTabCompleter;
 import de.castmax1311.katzcraftmanagement.TabCompleter.NamecolorTabCompleter;
 import de.castmax1311.katzcraftmanagement.commands.*;
@@ -12,19 +13,24 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-
 public final class Main extends JavaPlugin implements Listener {
     private boolean maintenanceMode = false;
     private String originalMotd;
 
     public static Main instance;
+    private NicknameManager nicknameManager;
+
     @Override
     public void onLoad() {
         instance = this;
+        this.nicknameManager = new NicknameManager(this);
     }
 
     @Override
     public void onEnable() {
+        loadNicknames();
+        getCommand("nickname").setExecutor(new NicknameCommand());
+        getServer().getPluginManager().registerEvents(this, this);
         getCommand("maintenance").setExecutor(new MaintenanceCommand());
         getCommand("fly").setExecutor(new FlyCommand());
         getCommand("mute").setExecutor(new MuteCommand());
@@ -46,6 +52,7 @@ public final class Main extends JavaPlugin implements Listener {
         originalMotd = Bukkit.getServer().getMotd();
         saveDefaultConfig();
         reloadConfig();
+        nicknameManager.loadNicknames();
 
         new UpdateChecker(this, 111324).getVersion(version -> {
             if (this.getDescription().getVersion().equals(version)) {
@@ -58,9 +65,21 @@ public final class Main extends JavaPlugin implements Listener {
 
     @Override
     public void onDisable() {
-
+        saveNicknames();
         getLogger().info("KatzcraftManagement plugin has been disabled.");
+    }
+    public NicknameManager getNicknameManager() {
+        return nicknameManager;
+    }
 
+    private void loadNicknames() {
+        // Implement code to load saved nicknames from file or database (if you want to persist data across server restarts).
+        // For simplicity, we'll just use an empty method for now.
+    }
+
+    private void saveNicknames() {
+        // Implement code to save nicknames to file or database (if you want to persist data across server restarts).
+        // For simplicity, we'll just use an empty method for now.
     }
 
     public static String formatMessage(String message) {

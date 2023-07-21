@@ -5,9 +5,14 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
+import java.io.File;
+import java.io.IOException;
+
 public class NamecolorCommand implements CommandExecutor {
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
@@ -29,12 +34,46 @@ public class NamecolorCommand implements CommandExecutor {
         }
 
         Player player = (Player) sender;
-        Main.instance.getServer().getScheduler().runTask(Main.instance, () -> {
-            player.setDisplayName(color + player.getName() + ChatColor.RESET);
-            player.setPlayerListName(color + player.getName() + ChatColor.RESET);
-            player.sendMessage(Main.formatMessage(ChatColor.GREEN + "Your name color has been updated!"));
-        });
+        Main.instance.getNicknameManager().setNameColor(player, color);
 
+        // Update the player's name in the tab list and above the player's head
+        updatePlayerName(player);
+
+        // Save the color to the configuration file
+        saveColorToConfig(player, color);
+
+        player.sendMessage(Main.formatMessage(ChatColor.GREEN + "Your name color has been updated!"));
         return true;
+    }
+
+    // Method to update the player's name in the tab list and above the player's head
+    private void updatePlayerName(Player player) {
+        String nickname = Main.instance.getNicknameManager().getNickname(player);
+        if (nickname == null) {
+            nickname = player.getName(); // Use the player's original name if no nickname is set
+        }
+
+        ChatColor color = Main.instance.getNicknameManager().getNameColor(player);
+        if (color == null) {
+            color = ChatColor.WHITE; // Default color, white
+        }
+
+        player.setDisplayName(color + nickname + ChatColor.RESET);
+        player.setPlayerListName(color + nickname + ChatColor.RESET);
+    }
+
+    // Method to save the player's color to the configuration file
+    private void saveColorToConfig(Player player, ChatColor color) {
+        File configFile = new File(Main.instance.getDataFolder(), "namecolors.yml");
+        YamlConfiguration config = YamlConfiguration.loadConfiguration(configFile);
+
+        // Save the color as a string representation (e.g., "AQUA")
+        config.set(player.getUniqueId().toString(), color.name());
+
+        try {
+            config.save(configFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
