@@ -18,6 +18,7 @@ public final class Main extends JavaPlugin implements Listener {
     private String originalMotd;
 
     public static Main instance;
+    private MotdListener motdListener;
     private NicknameManager nicknameManager;
 
     @Override
@@ -43,6 +44,11 @@ public final class Main extends JavaPlugin implements Listener {
         getCommand("messagecolor").setExecutor(new MessagecolorCommand());
         getCommand("messagecolor").setTabCompleter(new MessagecolorTabCompleter());
         getServer().getPluginManager().registerEvents(new MessagecolorListener(), this);
+        getCommand("speed").setExecutor(new SpeedCommand());
+        getServer().getPluginManager().registerEvents(new SpeedListener(), this);
+        motdListener = new MotdListener(getServer().getMotd());
+        getServer().getPluginManager().registerEvents(motdListener, this);
+        getCommand("motd").setExecutor(new MotdCommand());
         getCommand("inventory").setExecutor(new InventoryCommand());
         getLogger().info("KatzcraftManagement plugin has been enabled.");
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
@@ -67,6 +73,9 @@ public final class Main extends JavaPlugin implements Listener {
     public void onDisable() {
         saveNicknames();
         getLogger().info("KatzcraftManagement plugin has been disabled.");
+    }
+    public MotdListener getMotdListener() {
+        return motdListener;
     }
     public NicknameManager getNicknameManager() {
         return nicknameManager;

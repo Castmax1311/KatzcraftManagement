@@ -1,5 +1,5 @@
 name: KatzcraftManagement
-version: '0.9'
+version: '1.0'
 main: de.castmax1311.katzcraftmanagement.Main
 api-version: '1.16'
 description: A plugin to help admins manage their server
@@ -29,3 +29,9 @@ commands:
     nickname:
       description: "/nickname <name> or for OP's: /nickname <player> <name>"
       usage: /nickname <player> <name>
+    speed:
+      description: Change your speed in walking or flying
+      usage: /speed <fly / walk> <speed>
+    motd:
+      description: View the server description
+      usage: /motd
