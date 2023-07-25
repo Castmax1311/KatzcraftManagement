@@ -1,5 +1,5 @@
 name: KatzcraftManagement
-version: '1.0'
+version: '1.1'
 main: de.castmax1311.katzcraftmanagement.Main
 api-version: '1.16'
 description: A plugin to help admins manage their server
@@ -35,3 +35,12 @@ commands:
     motd:
       description: View the server description
       usage: /motd
+    craft:
+      description: Open the Crafting Table
+      usage: /craft
+    repair:
+      description: Repair the item you're holding in your hand
+      usage: /repair
+    head:
+      description: Give you heads from players
+      usage: /head <player> <amount>

@@ -6,7 +6,7 @@ import org.bukkit.event.server.ServerListPingEvent;
 
 public class MotdListener implements Listener {
 
-    private String motd; // Variable zum Speichern der Serverbeschreibung (MOTD)
+    private String motd;
 
     public MotdListener(String initialMotd) {
         this.motd = initialMotd;
@@ -14,15 +14,13 @@ public class MotdListener implements Listener {
 
     @EventHandler
     public void onServerListPing(ServerListPingEvent event) {
-        event.setMotd(motd); // Setze die gespeicherte MOTD als Serverbeschreibung
+        event.setMotd(motd);
     }
 
-    // Methode zum Aktualisieren der MOTD
     public void setMotd(String motd) {
         this.motd = motd;
     }
 
-    // Methode zum Abrufen der aktuellen MOTD
     public String getMotd() {
         return motd;
     }

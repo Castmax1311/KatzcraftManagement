@@ -49,6 +49,9 @@ public final class Main extends JavaPlugin implements Listener {
         motdListener = new MotdListener(getServer().getMotd());
         getServer().getPluginManager().registerEvents(motdListener, this);
         getCommand("motd").setExecutor(new MotdCommand());
+        getCommand("craft").setExecutor(new CraftCommand());
+        getCommand("repair").setExecutor(new RepairCommand());
+        getCommand("head").setExecutor(new HeadCommand());
         getCommand("inventory").setExecutor(new InventoryCommand());
         getLogger().info("KatzcraftManagement plugin has been enabled.");
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
