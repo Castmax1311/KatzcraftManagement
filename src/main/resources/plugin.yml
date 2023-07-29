@@ -1,5 +1,5 @@
 name: KatzcraftManagement
-version: '1.1'
+version: '1.3.1'
 main: de.castmax1311.katzcraftmanagement.Main
 api-version: '1.16'
 description: A plugin to help admins manage their server
@@ -44,3 +44,12 @@ commands:
     head:
       description: Give you heads from players
       usage: /head <player> <amount>
+    heal:
+      description: Fill up your hearts and hunger bars
+      usage: /heal
+    godmode:
+      description: Become Immortal
+      usage: /godmode
+    freeze:
+      description: Freeze players
+      usage: /freeze <player>

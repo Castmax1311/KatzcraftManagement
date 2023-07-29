@@ -52,6 +52,11 @@ public final class Main extends JavaPlugin implements Listener {
         getCommand("craft").setExecutor(new CraftCommand());
         getCommand("repair").setExecutor(new RepairCommand());
         getCommand("head").setExecutor(new HeadCommand());
+        getCommand("heal").setExecutor(new HealCommand());
+        getCommand("godmode").setExecutor(new GodmodeCommand());
+        getServer().getPluginManager().registerEvents(new GodmodeListener(), this);
+        getCommand("freeze").setExecutor(new FreezeCommand());
+        getServer().getPluginManager().registerEvents(new FreezeListener(), this);
         getCommand("inventory").setExecutor(new InventoryCommand());
         getLogger().info("KatzcraftManagement plugin has been enabled.");
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
@@ -95,7 +100,7 @@ public final class Main extends JavaPlugin implements Listener {
     }
 
     public static String formatMessage(String message) {
-        return "[" + ChatColor.BLUE + "Katzcraft Management" + ChatColor.RESET + "] " + message;
+        return "[" + ChatColor.BLUE + "KatzcraftManagement" + ChatColor.RESET + "] " + message;
     }
 
     public boolean isMaintenanceMode() {

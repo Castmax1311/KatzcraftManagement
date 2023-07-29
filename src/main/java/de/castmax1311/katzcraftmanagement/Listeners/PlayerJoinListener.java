@@ -3,7 +3,6 @@ package de.castmax1311.katzcraftmanagement.Listeners;
 import de.castmax1311.katzcraftmanagement.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -18,8 +17,6 @@ public class PlayerJoinListener implements Listener {
         if (Main.instance.isMaintenanceMode() && !player.isOp()) {
             player.kickPlayer(ChatColor.RED + "This server is under maintenance");
             return;
-        } else {
-            player.setGameMode(GameMode.SURVIVAL);
         }
 
         if (Main.instance.getConfig().getString("customJoinMessage") != null) {
