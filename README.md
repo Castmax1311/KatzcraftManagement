@@ -1,5 +1,5 @@
 # KatzcraftManagement
-Organize your server with a simple plugin
+This plugin is very simple and in the future will get several functions that you need for your management!
 
 Next update: "Custom Social Media Commands, Better UpdateChecker & Rename", v.1.3.2, 22.09.2023
 
