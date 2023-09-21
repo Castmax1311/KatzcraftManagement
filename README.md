@@ -1,7 +1,7 @@
 # KatzcraftManagement
 Organize your server with a simple plugin
 
-Next update: "Custom Social Media Commands & Rename", v.1.3.2, 22.09.2023
+Next update: "Custom Social Media Commands, Better UpdateChecker & Rename", v.1.3.2, 22.09.2023
 
 Commands for operators:
 - You can put the server in maintenance (/maintenance)
