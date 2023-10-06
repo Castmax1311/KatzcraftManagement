@@ -15,6 +15,7 @@ Commands for operators:
 - You can heal yourself (/heal)
 - You can become immortal (/godmode)
 - You can freeze players (/freeze [player])
+- Give you the operator sword (/opsword)
 
 Commands for all:
 - You can change your name (/nickname [name])
