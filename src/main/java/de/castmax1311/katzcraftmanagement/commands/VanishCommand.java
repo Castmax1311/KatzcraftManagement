@@ -13,21 +13,21 @@ public class VanishCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage(Main.formatMessage(ChatColor.RED + "Dieser Befehl kann nur von einem Spieler ausgeführt werden!"));
+            sender.sendMessage(Main.formatMessage(ChatColor.RED + "This command can only be executed by players."));
             return true;
         }
 
         Player player = (Player) sender;
 
         if (!player.isOp()) {
-            player.sendMessage(Main.formatMessage(ChatColor.RED + "Du musst ein Operator sein, um diesen Befehl zu verwenden!"));
+            player.sendMessage(Main.formatMessage(ChatColor.RED + "You don't have permission to use this command."));
             return true;
         }
 
         if (player.hasPermission("vanish.use")) {
             VanishListener.setVanished(player, !VanishListener.isVanished(player));
         } else {
-            player.sendMessage(Main.formatMessage(ChatColor.RED + "Du hast keine Berechtigung, den Vanish-Befehl zu verwenden!"));
+            player.sendMessage(Main.formatMessage(ChatColor.RED + "You don't have permission to use this command."));
         }
 
         return true;

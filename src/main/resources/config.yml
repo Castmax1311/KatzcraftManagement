@@ -5,3 +5,23 @@ customJoinMessage: "§6§l%player_name% §ejust appeared on the server! Say hell
 
 # Same as above goes for the leave message
 customLeaveMessage: "§6§l%player_name% §ejust left the server... We hope to seem them again soon!"
+
+# You need a sound for this
+# Configure the position sound:
+positionSound: ENTITY_PLAYER_LEVELUP
+
+# You need a sound for this
+# Configure the support sound:
+supportSound: ENTITY_EXPERIENCE_ORB_PICKUP
+
+# Write null if you don't want a custom link
+# Configure your Discord server invitation link:
+discordLink: https://discord.gg/ekCHh2Kfkn
+
+# Write null if you don't want a custom link
+# Configure your YouTube channel link:
+youtubeLink: https://www.youtube.com/@Katzcraft_Studios
+
+# Write null if you don't want a custom link
+# Configure your Instagram link:
+instagramLink: null

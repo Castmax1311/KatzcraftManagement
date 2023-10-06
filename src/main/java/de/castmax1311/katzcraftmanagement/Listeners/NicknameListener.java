@@ -16,6 +16,7 @@ public class NicknameListener implements Listener {
 
         if (savedNickname != null) {
             player.setDisplayName(savedNickname);
+            player.setPlayerListName(savedNickname);
         }
     }
 }

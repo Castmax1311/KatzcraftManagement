@@ -33,8 +33,6 @@ public class PlayerJoinListener implements Listener {
         // Set the player's display name to their nickname (if it exists)
         if (savedNickname != null) {
             player.setDisplayName(savedNickname);
-        }
-        if (savedNickname != null) {
             player.setPlayerListName(savedNickname);
         }
 
