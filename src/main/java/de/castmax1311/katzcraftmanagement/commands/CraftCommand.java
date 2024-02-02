@@ -18,7 +18,7 @@ public class CraftCommand implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        if (!player.isOp()) {
+        if (!player.hasPermission("katzcraftmanagement.craft")) {
             player.sendMessage(Main.formatMessage(ChatColor.RED + "You don't have permission to use this command."));
             return true;
         }

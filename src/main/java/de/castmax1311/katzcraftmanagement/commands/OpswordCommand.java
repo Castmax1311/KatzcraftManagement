@@ -18,9 +18,10 @@ public class OpswordCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (sender instanceof Player) {
+
             Player player = (Player) sender;
 
-            if (player.isOp()) {
+            if (player.hasPermission("katzcraftmanagement.opsword")) {
                 ItemStack opsword = new ItemStack(Material.NETHERITE_SWORD);
                 ItemMeta meta = opsword.getItemMeta();
 

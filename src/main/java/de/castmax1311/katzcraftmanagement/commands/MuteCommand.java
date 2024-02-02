@@ -17,20 +17,20 @@ public class MuteCommand implements CommandExecutor {
             return true;
         }
 
-        Player operator = (Player) sender;
-        if (!operator.isOp()) {
-            operator.sendMessage(Main.formatMessage(ChatColor.RED + "You don't have permission to execute this command!"));
+        Player player = (Player) sender;
+        if (!player.hasPermission("katzcraftmanagement.mute")) {
+            player.sendMessage(Main.formatMessage(ChatColor.RED + "You don't have permission to execute this command!"));
             return true;
         }
 
         if (args.length != 2) {
-            operator.sendMessage(Main.formatMessage("Use: /mute <player> <time in seconds>"));
+            player.sendMessage(Main.formatMessage("Use: /mute <player> <time in seconds>"));
             return true;
         }
 
         Player target = Main.instance.getServer().getPlayer(args[0]);
         if (target == null || !target.isOnline()) {
-            operator.sendMessage(Main.formatMessage(ChatColor.RED + "Player not found or not online"));
+            player.sendMessage(Main.formatMessage(ChatColor.RED + "Player not found or not online"));
             return true;
         }
 
@@ -38,12 +38,12 @@ public class MuteCommand implements CommandExecutor {
         try {
             muteTime = Long.parseLong(args[1]);
         } catch (NumberFormatException e) {
-            operator.sendMessage(Main.formatMessage(ChatColor.RED + "Invalid time"));
+            player.sendMessage(Main.formatMessage(ChatColor.RED + "Invalid time"));
             return true;
         }
 
         MuteListener.mutePlayer(target, muteTime);
-        operator.sendMessage(Main.formatMessage(ChatColor.GREEN + target.getName() + " was muted for " + muteTime + " seconds"));
+        player.sendMessage(Main.formatMessage(ChatColor.GREEN + target.getName() + " was muted for " + muteTime + " seconds"));
         return true;
     }
 }

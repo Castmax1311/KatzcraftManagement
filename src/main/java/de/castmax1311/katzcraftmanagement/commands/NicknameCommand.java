@@ -18,9 +18,6 @@ public class NicknameCommand implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        // Check if the player is an operator (has permission)
-        boolean isOperator = player.isOp();
-
         if (args.length == 1) {
             // Player is changing their own nickname
             String nickname = args[0];
@@ -28,7 +25,7 @@ public class NicknameCommand implements CommandExecutor {
             updatePlayerName(player, nickname);
 
             player.sendMessage(Main.formatMessage(ChatColor.GREEN + "Your nickname has been updated!"));
-        } else if (args.length == 2 && isOperator) {
+        } else if (args.length == 2) {
             // Operator is changing another player's nickname
             String targetPlayerName = args[0];
             Player targetPlayer = Main.instance.getServer().getPlayer(targetPlayerName);

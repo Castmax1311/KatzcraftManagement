@@ -19,12 +19,12 @@ public class VanishCommand implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        if (!player.isOp()) {
+        if (!player.hasPermission("katzcraftmanagement.vanish")) {
             player.sendMessage(Main.formatMessage(ChatColor.RED + "You don't have permission to use this command."));
             return true;
         }
 
-        if (player.hasPermission("vanish.use")) {
+        if (player.hasPermission("katzcraftmanagement.vanish")) {
             VanishListener.setVanished(player, !VanishListener.isVanished(player));
         } else {
             player.sendMessage(Main.formatMessage(ChatColor.RED + "You don't have permission to use this command."));

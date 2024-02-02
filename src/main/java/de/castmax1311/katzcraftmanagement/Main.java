@@ -65,7 +65,7 @@ public final class Main extends JavaPlugin implements Listener {
         getCommand("discord").setExecutor(new SocialCommand());
         getCommand("youtube").setExecutor(new SocialCommand());
         getCommand("instagram").setExecutor(new SocialCommand());
-        getLogger().info("KatzcraftManagement plugin has been enabled.");
+        getLogger().info("KatzcraftManagement plugin has been enabled");
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
         Bukkit.getPluginManager().registerEvents(new ServerListPingListener(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
@@ -93,7 +93,7 @@ public final class Main extends JavaPlugin implements Listener {
     @Override
     public void onDisable() {
         saveNicknames();
-        getLogger().info("KatzcraftManagement plugin has been disabled.");
+        getLogger().info("KatzcraftManagement plugin has been disabled");
     }
     public MotdListener getMotdListener() {
         return motdListener;

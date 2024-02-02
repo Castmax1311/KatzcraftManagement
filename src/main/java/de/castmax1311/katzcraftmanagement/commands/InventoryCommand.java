@@ -15,7 +15,7 @@ public class InventoryCommand implements CommandExecutor {
         if (sender instanceof Player) {
             Player player = (Player) sender;
 
-            if (!player.isOp()) {
+            if (!player.hasPermission("katzcraftmanagement.inventory")) {
                 player.sendMessage(Main.formatMessage(ChatColor.RED + "You don't have permission to execute this command!"));
                 return true;
             }

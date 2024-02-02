@@ -23,7 +23,7 @@ public class FreezeCommand implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        if (!player.isOp()) {
+        if (!player.hasPermission("katzcraftmanagement.freeze")) {
             player.sendMessage(Main.formatMessage(ChatColor.RED + "You don't have permission to execute this command!"));
             return true;
         }

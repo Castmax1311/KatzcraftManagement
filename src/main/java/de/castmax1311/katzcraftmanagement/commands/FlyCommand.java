@@ -19,7 +19,7 @@ public class FlyCommand implements CommandExecutor {
         Player player = (Player) sender;
 
         // Check if the player is an operator (OP)
-        if (!player.isOp()) {
+        if (!player.hasPermission("katzcraftmanagement.fly")) {
             player.sendMessage(Main.formatMessage(ChatColor.RED + "You don't have permission to use this command."));
             return true;
         }

@@ -14,7 +14,7 @@ public class PlayerJoinListener implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        if (Main.instance.isMaintenanceMode() && !player.isOp()) {
+        if (Main.instance.isMaintenanceMode() && !player.hasPermission("katzcraftmanagement.maintenance")) {
             player.kickPlayer(ChatColor.RED + "This server is under maintenance");
             return;
         }

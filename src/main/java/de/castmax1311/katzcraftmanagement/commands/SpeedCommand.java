@@ -22,7 +22,7 @@ public class SpeedCommand implements CommandExecutor, TabCompleter {
 
         Player player = (Player) sender;
 
-        if (!player.isOp()) {
+        if (!player.hasPermission("katzcraftmanagement.speed")) {
             player.sendMessage(Main.formatMessage(ChatColor.RED + "You don't have permission to use this command."));
             return true;
         }

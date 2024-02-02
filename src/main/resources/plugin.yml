@@ -1,25 +1,32 @@
 name: KatzcraftManagement
-version: '1.3.3'
+version: '2.0'
 main: de.castmax1311.katzcraftmanagement.Main
 api-version: '1.16'
+authors: [Castmax1311]
 description: A plugin to help admins manage their server
+website: https://castmax1311.github.io/katzcraft-studios-website/
 softdepend: [PlaceholderAPI] # This is used, if your plugin works without PlaceholderAPI.
 commands:
   maintenance:
     description: Put your server in maintenance
     usage: /maintenance
+    permission: katzcraftmanagement.maintenance
   fly:
     description: Flight mode
     usage: /fly
+    permission: katzcraftmanagement.fly
   mute:
     description: Mute a player for a user-defined period of time
     usage: /mute <player> <time in seconds>
+    permission: katzcraftmanagement.mute
   vanish:
     description: Be invisible for all players
     usage: /vanish
+    permission: katzcraftmanagement.vanish
   inventory:
     description: Look into the inventory of other players
     usage: /inventory <player>
+    permission: katzcraftmanagement.inventory
   namecolor:
     description: Change the color of your name
     usage: /chatcolor <color>
@@ -29,49 +36,64 @@ commands:
   nickname:
     description: "/nickname <name> or for OP's: /nickname <player> <name>"
     usage: /nickname <player> <name>
+    permission: katzcraftmanagement.nickname
   speed:
     description: Change your speed in walking or flying
     usage: /speed <fly / walk> <speed>
+    permission: katzcraftmanagement.speed
   motd:
     description: View the server description
     usage: /motd
   craft:
     description: Open the Crafting Table
     usage: /craft
+    permission: katzcraftmanagement.craft
   repair:
     description: Repair the item you're holding in your hand
     usage: /repair
+    permission: katzcraftmanagement.repair
   head:
     description: Give you heads from players
     usage: /head <player> <amount>
+    permission: katzcraftmanagement.head
   heal:
     description: Fill up your hearts and hunger bars
     usage: /heal
+    permission: katzcraftmanagement.heal
   godmode:
     description: Become Immortal
     usage: /godmode
+    permission: katzcraftmanagement.godmode
   freeze:
     description: Freeze players
     usage: /freeze <player>
+    permission: katzcraftmanagement.freeze
   opsword:
     description: Give you the operator sword
     usage: /opsword
+    permission: katzcraftmanagement.opsword
   rename:
     description: Change the name of an item
     usage: /rename <name>
+    permission: katzcraftmanagement.rename
   position:
     description: Share your position with all players
     usage: /position
+    permission: katzcraftmanagement.position
   support:
     description: Send active operators a support request
     usage: /support <reason>
+    permission: katzcraftmanagement.support
   #SocialCommands
   discord:
     description: Check out our Discord server
     usage: /discord
+    permission: katzcraftmanagement.socialmedia
   youtube:
     description: Check out our YouTube channel
     usage: /youtube
+    permission: katzcraftmanagement.socialmedia
   instagram:
     description: Check out our Instagram page
     usage: /instagram
+    permission: katzcraftmanagement.socialmedia
