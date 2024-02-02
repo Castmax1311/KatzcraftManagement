@@ -1,7 +1,7 @@
 # KatzcraftManagement
 This plugin is very simple and in the future will get several functions that you need for your management!
 
-Note for v.1.3.3: The old config.yml must be replaced for the new changes to work. Please delete your old config.yml and restart or reload your server
+Note for v.1.3.2 and above: The old config.yml must be replaced for the new changes to work. Please delete your old config.yml and restart or reload your server
 
 Commands for operators:
 - You can put the server in maintenance (/maintenance)
@@ -27,6 +27,26 @@ Commands for all:
 - Check out the Discord server (/discord)
 - Check out the YouTube channel (/youtube)
 - Check out the Instagram page (/instagram)
+
+Permissions:
+- katzcraftmanagement.maintenance
+- katzcraftmanagement.fly
+- katzcraftmanagement.mute
+- katzcraftmanagement.vanish
+- katzcraftmanagement.inventory
+- katzcraftmanagement.nickname
+- katzcraftmanagement.speed
+- katzcraftmanagement.craft
+- katzcraftmanagement.repair
+- katzcraftmanagement.head
+- katzcraftmanagement.heal
+- katzcraftmanagement.godmode
+- katzcraftmanagement.freeze
+- katzcraftmanagement.opsword
+- katzcraftmanagement.rename
+- katzcraftmanagement.position
+- katzcraftmanagement.support
+- katzcraftmanagement.socialmedia
 
 Other:
 - Custom message when a player joins or leaves the server, which you can change in config.yml
