@@ -3,7 +3,7 @@ This plugin is very simple and in the future will get several functions that you
 
 Note for v.1.3.2 and above: The old config.yml must be replaced for the new changes to work. Please delete your old config.yml and restart or reload your server
 
-Commands for operators:
+Commands that you can only use with permission:
 - You can put the server in maintenance (/maintenance)
 - You can fly (/fly)
 - You can make yourself invisible to all players (/vanish)
@@ -16,17 +16,21 @@ Commands for operators:
 - You can become immortal (/godmode)
 - You can freeze players (/freeze [player])
 - Give you the operator sword (/opsword)
-
-Commands for all:
+- Give you the operator armor (/oparmor)
 - You can change your name (/nickname [name])
-- You can change the color of your name (/namecolor [color])
-- You can change the color of your chat messages (/messagecolor [color])
-- You can view the server description (/motd)
 - Share your positions with all players (/position)
 - Send active operators a support request (/support)
+- Clear the chat for all players (/clearchat)
 - Check out the Discord server (/discord)
 - Check out the YouTube channel (/youtube)
 - Check out the Instagram page (/instagram)
+- Check out our twitch channel (/twitch)
+- Check out our website (/website)
+
+Commands for all:
+- You can change the color of your name (/namecolor [color])
+- You can change the color of your chat messages (/messagecolor [color])
+- You can view the server description (/motd)
 
 Permissions:
 - katzcraftmanagement.maintenance
@@ -43,9 +47,11 @@ Permissions:
 - katzcraftmanagement.godmode
 - katzcraftmanagement.freeze
 - katzcraftmanagement.opsword
+- katzcraftmanagement.oparmor
 - katzcraftmanagement.rename
 - katzcraftmanagement.position
 - katzcraftmanagement.support
+- katzcraftmanagement.clearchat
 - katzcraftmanagement.socialmedia
 
 Other:
