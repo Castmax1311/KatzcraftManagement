@@ -1,10 +1,10 @@
 name: KatzcraftManagement
-version: '2.0'
+version: '2.1'
 main: de.castmax1311.katzcraftmanagement.Main
 api-version: '1.16'
 authors: [Castmax1311]
 description: A plugin to help admins manage their server
-website: https://castmax1311.github.io/katzcraft-studios-website/
+website: https://sites.google.com/view/katzcraftstudios/home
 softdepend: [PlaceholderAPI] # This is used, if your plugin works without PlaceholderAPI.
 commands:
   maintenance:
@@ -72,6 +72,10 @@ commands:
     description: Give you the operator sword
     usage: /opsword
     permission: katzcraftmanagement.opsword
+  oparmor:
+    description: Give you the operator armor
+    usage: /oparmor
+    permission: katzcraftmanagement.oparmor
   rename:
     description: Change the name of an item
     usage: /rename <name>
@@ -84,6 +88,10 @@ commands:
     description: Send active operators a support request
     usage: /support <reason>
     permission: katzcraftmanagement.support
+  clearchat:
+    description: Clear the chat for all players
+    usage: /clearchat
+    permission: katzcraftmanagement.clearchat
   #SocialCommands
   discord:
     description: Check out our Discord server
@@ -96,4 +104,12 @@ commands:
   instagram:
     description: Check out our Instagram page
     usage: /instagram
+    permission: katzcraftmanagement.socialmedia
+  twitch:
+    description: Check out our twitch channel
+    usage: /twitch
+    permission: katzcraftmanagement.socialmedia
+  website:
+    description: Check out our website
+    usage: /website
     permission: katzcraftmanagement.socialmedia

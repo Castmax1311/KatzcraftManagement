@@ -25,3 +25,11 @@ youtubeLink: https://www.youtube.com/@Katzcraft_Studios
 # Write null if you don't want a custom link
 # Configure your Instagram link:
 instagramLink: null
+
+# Write null if you don't want a custom link
+# Configure your Twitch link:
+twitchLink: null
+
+# Write null if you don't want a custom link
+# Configure your Website link:
+websiteLink: https://sites.google.com/view/katzcraftstudios/home

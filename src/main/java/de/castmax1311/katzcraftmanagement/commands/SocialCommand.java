@@ -34,6 +34,20 @@ public class SocialCommand implements CommandExecutor {
                 } else {
                     player.sendMessage(Main.formatMessage(ChatColor.RED + "No Instagram link configured"));
                 }
+            } else if (command.getName().equalsIgnoreCase("twitch")) {
+                String twitchLink = Main.instance.getConfig().getString("twitchLink");
+                if (twitchLink != null && !twitchLink.isEmpty()) {
+                    player.sendMessage(Main.formatMessage("Visit our " + ChatColor.LIGHT_PURPLE + "Twitch Channel: " + ChatColor.BLUE +  twitchLink));
+                } else {
+                    player.sendMessage(Main.formatMessage(ChatColor.RED + "No Twitch link configured"));
+                }
+            } else if (command.getName().equalsIgnoreCase("website")) {
+                String websiteLink = Main.instance.getConfig().getString("websiteLink");
+                if (websiteLink != null && !websiteLink.isEmpty()) {
+                    player.sendMessage(Main.formatMessage("Visit our " + ChatColor.DARK_BLUE + "Website " + ChatColor.BLUE +  websiteLink));
+                } else {
+                    player.sendMessage(Main.formatMessage(ChatColor.RED + "No website link configured"));
+                }
             }
         } else {
             sender.sendMessage(Main.formatMessage(ChatColor.RED + "This command can only be executed by players!"));

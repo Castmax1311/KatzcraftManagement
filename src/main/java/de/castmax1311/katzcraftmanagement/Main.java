@@ -59,12 +59,16 @@ public final class Main extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new FreezeListener(), this);
         getCommand("inventory").setExecutor(new InventoryCommand());
         getCommand("opsword").setExecutor(new OpswordCommand());
+        getCommand("oparmor").setExecutor(new OparmorCommand());
         getCommand("rename").setExecutor(new RenameCommand());
         getCommand("position").setExecutor(new PositionCommand());
         getCommand("support").setExecutor(new SupportCommand());
         getCommand("discord").setExecutor(new SocialCommand());
         getCommand("youtube").setExecutor(new SocialCommand());
         getCommand("instagram").setExecutor(new SocialCommand());
+        getCommand("twitch").setExecutor(new SocialCommand());
+        getCommand("website").setExecutor(new SocialCommand());
+        getCommand("clearchat").setExecutor(new ClearchatCommand());
         getLogger().info("KatzcraftManagement plugin has been enabled");
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
         Bukkit.getPluginManager().registerEvents(new ServerListPingListener(), this);
@@ -80,7 +84,7 @@ public final class Main extends JavaPlugin implements Listener {
             if (this.getDescription().getVersion().equals(version)) {
                 getLogger().info("No updates available");
             } else {
-                getLogger().info("New update available!");
+                getLogger().info("New update available! Download it on https://www.spigotmc.org/resources/katzcraftmanagement.111324/");
                 for (Player player : Bukkit.getOnlinePlayers()) {
                     if (player.isOp()) {
                         player.sendMessage(Main.formatMessage(ChatColor.GREEN + "New update available! Download the latest version on Spigot: " + ChatColor.BLUE + "https://www.spigotmc.org/resources/katzcraftmanagement.111324/"));
